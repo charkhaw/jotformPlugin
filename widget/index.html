@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="jotFormPluginWidget">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>content</title>
+  <!-- CSS -->
+  <link href="../../../styles/helper.css" rel="stylesheet">
+  <link href="../../../styles/siteIcons.css" rel="stylesheet">
+
+  <!-- JS -->
+  <script src="../../../scripts/buildfire.js"></script>
+  <script src="../../../scripts/angular/angular.min.js"></script>
+  <script src="../../../scripts/angular/ui-bootstrap.min.js"></script>
+  <script src="app.js"></script>
+  <script src="enums.js"></script>
+  <script src="app.services.js"></script>
+</head>
+<body>
+<div class="content"  ng-controller="WidgetHomeCtrl as WidgetHome">
+  <iframe src="{{WidgetHome.data.content.url | returnUrl}}"
+          ng-if="WidgetHome.data.content.url" style="height: 100%;position: absolute"></iframe>
+</div>
+</body>
+</html>

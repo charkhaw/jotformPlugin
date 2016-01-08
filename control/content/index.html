@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="jotFormPluginContent">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Content</title>
+  <!-- CSS -->
+  <link href="../../../../styles/helper.css" rel="stylesheet">
+  <link href="../../../../styles/siteIcons.css" rel="stylesheet">
+
+  <!-- JS -->
+  <script src="../../../../scripts/buildfire.js"></script>
+  <script src="../../../../scripts/angular/angular.min.js"></script>
+  <script src="../../../../scripts/angular/ui-bootstrap.min.js"></script>
+  <script src="app.js"></script>
+  <script src="app.services.js"></script>
+  <script src="enums.js"></script>
+</head>
+<body id="webviewApp" ng-cloak>
+<div ng-controller="ContentHomeCtrl as ContentHome">
+  <div class="item clearfix row margin-bottom-fifteen">
+    <div class="labels col-md-3 padding-right-zero pull-left">
+      <span>URL</span>
+    </div>
+    <div class="main col-md-9 pull-right clearfix">
+      <div class="col-md-9 pull-left padding-left-zero">
+        <input id="url" name="url" type="text" class="form-control"
+               ng-model="ContentHome.JotUrl" required
+               ng-change="ContentHome.clearData()">
+      </div>
+      <div class="col-md-3 pull-right padding-zero">
+        <button class="btn btn-success stretch"
+                ng-click="ContentHome.validateUrl()" ng-disabled="!ContentHome.JotUrl">
+          Validate
+        </button>
+      </div>
+    </div>
+  </div>
+  <hr class="none">
+  <div class="item clearfix row">
+    <div class="col-md-9 pull-right">
+      <p>Dont have a JotForm account click <a ng-click="ContentHome.gotToPage()">here</a> to register</p>
+    </div>
+  </div>
+  <hr class="none">
+  <div class="item clearfix row">
+    <div class="main pull-right col-md-9">
+      <div class="alert alert-success alert-sm text-center" ng-if="ContentHome.isUrlValidated==true">Url
+        successfully validated
+      </div>
+      <div class="alert alert-danger alert-sm text-center" ng-if="ContentHome.isUrlValidated==false">Invalid Url
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
